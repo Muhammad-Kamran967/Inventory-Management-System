@@ -1,0 +1,96 @@
+﻿[D] 2020-06-28T03:29:20.192 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-06-28T03:29:21.157 END - ExecuteReader
+[D] 2020-06-28T03:29:29.690 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-06-28T03:29:29.941 END - ExecuteReader
+[D] 2020-06-28T03:29:49.522 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-06-28T03:29:49.652 END - ExecuteReader
+[D] 2020-06-28T03:29:50.321 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-06-28T03:29:50.534 END - ExecuteReader
+[D] 2020-06-28T03:29:51.487 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-06-28T03:29:51.625 END - ExecuteReader
+[D] 2020-06-28T03:29:54.269 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+WHERE (T0.[PartyType] = @p1) 
+ORDER BY T0.[Name]
+
+[D] 2020-06-28T03:29:54.290 END - ExecuteReader
+[D] 2020-06-28T03:29:54.684 Dapper.QueryInternal
+DECLARE p1 NVARCHAR(4000) = 'PI-%';
+DECLARE p2 NVARCHAR(4000) = 'PI-00000';
+DECLARE p3 NVARCHAR(4000) = 'PI-99999';
+
+SELECT 
+MAX(T0.[TransactionNumber]) 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionNumber] LIKE @p1 AND (T0.[TransactionNumber] >= @p2)) AND (T0.[TransactionNumber] <= @p3))
+

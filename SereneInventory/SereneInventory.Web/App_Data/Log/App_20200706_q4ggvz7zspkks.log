@@ -1,0 +1,46 @@
+﻿[D] 2020-07-06T08:47:28.050 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T08:47:28.245 END - ExecuteReader
+[D] 2020-07-06T08:48:35.354 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+DECLARE @p2 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+
+SELECT 
+1 
+FROM [Users] T0 
+WHERE ((T0.[Username] = @p1) OR (T0.[Email] = @p2))
+
+[D] 2020-07-06T08:48:35.402 END - ExecuteReader
+[D] 2020-07-06T08:48:35.457 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+DECLARE @p2 NVARCHAR(4000) = 'sign';
+DECLARE @p3 NVARCHAR(4000) = 'uEeayRFw09GaZ5GTvp8JjFnf3+Kl+F+pXjoK+wspSuQQ19U2LG1GcbgxOTVoxIjWtRe7L452Iq91bwRTPVmXpg';
+DECLARE @p4 NVARCHAR(4000) = 'E>fg{';
+DECLARE @p5 NVARCHAR(4000) = 'KAMRAN';
+DECLARE @p6 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+DECLARE @p7 DATETIME2 = '2020-07-06T08:48:35.448';
+DECLARE @p8 SMALLINT = 0;
+DECLARE @p9 INT = 1;
+DECLARE @p10 DATETIME2 = '2020-07-06T08:48:35.446';
+
+INSERT INTO [Users] ([Username], [Source], [PasswordHash], [PasswordSalt], [DisplayName], [Email], [LastDirectoryUpdate], [IsActive], [InsertUserId], [InsertDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T08:48:35.598 END - ExecuteReader
+[D] 2020-07-06T08:49:32.083 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+DECLARE @p2 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+
+SELECT 
+1 
+FROM [Users] T0 
+WHERE ((T0.[Username] = @p1) OR (T0.[Email] = @p2))
+
+[D] 2020-07-06T08:49:32.085 END - ExecuteReader

@@ -1,0 +1,54 @@
+﻿[D] 2020-07-06T08:54:03.779 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T08:54:03.787 END - ExecuteReader
+[D] 2020-07-06T08:54:10.344 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Email] = @p1)
+
+[D] 2020-07-06T08:54:10.346 END - ExecuteReader
+[D] 2020-07-06T08:54:57.986 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'KAMRAN';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T08:54:57.989 END - ExecuteReader

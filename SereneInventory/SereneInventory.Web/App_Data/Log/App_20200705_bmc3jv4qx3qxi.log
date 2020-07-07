@@ -1,0 +1,869 @@
+﻿[D] 2020-07-05T20:43:06.917 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-05T20:43:07.142 END - ExecuteReader
+[D] 2020-07-05T20:43:15.699 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-05T20:43:15.737 END - ExecuteReader
+[D] 2020-07-05T20:43:45.547 Dapper.QueryInternal
+DECLARE p1 NVARCHAR(4000) = 'SereneInventory';
+
+SELECT TOP 200 
+* 
+FROM [Exceptions] 
+WHERE (([ApplicationName] = @p1) AND [DeletionDate] IS NULL) 
+ORDER BY CreationDate DESC
+
+[D] 2020-07-05T20:43:54.124 ExecuteReader
+
+SELECT TOP 100 
+T0.[Id] AS [Id],
+T0.[LanguageId] AS [LanguageId],
+T0.[LanguageName] AS [LanguageName] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName], T0.[Id];
+SELECT count(*)  
+FROM [Languages] T0
+
+[D] 2020-07-05T20:43:54.138 END - ExecuteReader
+[D] 2020-07-05T20:59:03.527 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-05T20:59:03.568 END - ExecuteReader
+[D] 2020-07-05T20:59:08.271 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-05T20:59:08.280 END - ExecuteReader
+[D] 2020-07-05T20:59:15.090 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Tenant] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Tenant] T0
+
+[D] 2020-07-05T20:59:15.099 END - ExecuteReader
+[D] 2020-07-05T20:59:19.360 ExecuteReader
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Username] AS [Username],
+T0.[DisplayName] AS [DisplayName] 
+FROM [Users] T0 
+ORDER BY T0.[Username]
+
+[D] 2020-07-05T20:59:19.362 END - ExecuteReader
+[D] 2020-07-05T20:59:20.100 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[VersionNo] AS [VersionNo],
+T0.[UserId] AS [UserId],
+T0.[ActionType] AS [ActionType],
+T0.[ActionDate] AS [ActionDate],
+T0.[TableName] AS [EntityTableName],
+T0.[EntityId] AS [EntityId],
+T0.[OldEntity] AS [OldEntity],
+T0.[NewEntity] AS [NewEntity],
+T0.[IpAddress] AS [IpAddress],
+T0.[SessionId] AS [SessionId] 
+FROM [AuditLog] T0 
+ORDER BY T0.[ActionDate] DESC, T0.[Id];
+SELECT count(*)  
+FROM [AuditLog] T0
+
+[D] 2020-07-05T21:00:33.529 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Party] T0
+
+[D] 2020-07-05T21:00:33.553 END - ExecuteReader
+[D] 2020-07-05T21:00:37.799 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-05T21:00:37.803 END - ExecuteReader
+[D] 2020-07-05T21:00:38.332 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-05T21:00:38.411 END - ExecuteReader
+[D] 2020-07-05T21:00:41.914 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-05T21:00:41.919 END - ExecuteReader
+[D] 2020-07-05T21:00:48.633 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-05T21:00:48.636 END - ExecuteReader
+[D] 2020-07-05T21:00:48.897 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-05T21:00:48.900 END - ExecuteReader
+[D] 2020-07-05T21:00:49.477 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-05T21:00:49.514 END - ExecuteReader
+[D] 2020-07-05T21:00:53.910 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-05T21:00:53.928 END - ExecuteReader
+[D] 2020-07-05T21:00:56.337 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-05T21:00:56.392 END - ExecuteReader
+[D] 2020-07-05T21:01:00.158 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-05T21:01:00.166 END - ExecuteReader
+[D] 2020-07-05T21:01:06.932 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'AuditLog';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.447 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Party';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.497 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0
+
+[D] 2020-07-05T21:01:07.501 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Product';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.511 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate],
+jProductCategory.[Name] AS [ProductCategoryName],
+jProductCategory.[Description] AS [ProductCategoryDescription],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity] 
+FROM [dbo].[Product] T0 
+LEFT JOIN [dbo].[ProductCategory] jProductCategory ON (jProductCategory.[Id] = T0.[ProductCategoryId])
+
+[D] 2020-07-05T21:01:07.551 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'ProductCategory';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.555 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-05T21:01:07.558 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'UserPreferences';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.560 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[UserPreferenceId] AS [UserPreferenceId],
+T0.[UserId] AS [UserId],
+T0.[PreferenceType] AS [PreferenceType],
+T0.[Name] AS [Name],
+T0.[Value] AS [Value] 
+FROM [UserPreferences] T0
+
+[D] 2020-07-05T21:01:07.562 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Users';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.565 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0
+
+[D] 2020-07-05T21:01:07.570 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Languages';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.571 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[LanguageId] AS [LanguageId],
+T0.[LanguageName] AS [LanguageName] 
+FROM [Languages] T0
+
+[D] 2020-07-05T21:01:07.573 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Roles';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.575 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0
+
+[D] 2020-07-05T21:01:07.576 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'RolePermissions';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.578 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[RolePermissionId] AS [RolePermissionId],
+T0.[RoleId] AS [RoleId],
+T0.[PermissionKey] AS [PermissionKey],
+jRole.[RoleName] AS [RoleRoleName] 
+FROM [RolePermissions] T0 
+LEFT JOIN [Roles] jRole ON (jRole.[RoleId] = T0.[RoleId])
+
+[D] 2020-07-05T21:01:07.581 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'UserRoles';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.583 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[UserRoleId] AS [UserRoleId],
+T0.[UserId] AS [UserId],
+T0.[RoleId] AS [RoleId],
+jUser.[Username] AS [Username],
+jUser.[DisplayName] AS [User] 
+FROM [UserRoles] T0 
+LEFT JOIN [Users] jUser ON (jUser.[UserId] = T0.[UserId])
+
+[D] 2020-07-05T21:01:07.589 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'UserPermissions';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.591 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[UserPermissionId] AS [UserPermissionId],
+T0.[UserId] AS [UserId],
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted],
+jUser.[Username] AS [Username],
+jUser.[DisplayName] AS [User] 
+FROM [UserPermissions] T0 
+LEFT JOIN [Users] jUser ON (jUser.[UserId] = T0.[UserId])
+
+[D] 2020-07-05T21:01:07.594 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Tenant';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.595 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Tenant] T0
+
+[D] 2020-07-05T21:01:07.598 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'Transaction';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.600 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate],
+jParty.[PartyType] AS [PartyPartyType],
+jParty.[Name] AS [PartyName],
+jParty.[Address] AS [PartyAddress],
+jParty.[Contact] AS [PartyContact],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+(SELECT SUM(d.Amount) FROM TransactionExpense d WHERE d.TransactionId = T0.Id) AS [TotalExpense] 
+FROM [dbo].[Transaction] T0 
+LEFT JOIN [dbo].[Party] jParty ON (jParty.[Id] = T0.[PartyId])
+
+[D] 2020-07-05T21:01:07.614 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'TransactionDetail';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.616 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[TransactionId] AS [TransactionId],
+T0.[ProductId] AS [ProductId],
+T0.[Quantity] AS [Quantity],
+T0.[UnitPrice] AS [UnitPrice],
+T0.[Amount] AS [Amount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate],
+jTransaction.[TransactionType] AS [TransactionTransactionType],
+jTransaction.[RefTransactionId] AS [TransactionRefTransactionId],
+jTransaction.[TransactionNumber] AS [TransactionTransactionNumber],
+jTransaction.[TransactionDate] AS [TransactionTransactionDate],
+jTransaction.[PartyId] AS [TransactionPartyId],
+jProduct.[Name] AS [ProductName],
+jProduct.[ProductType] AS [ProductProductType],
+jProduct.[ProductCategoryId] AS [ProductProductCategoryId],
+jProduct.[Description] AS [ProductDescription],
+jProduct.[Images] AS [ProductImages],
+(jTransaction.[TransactionNumber] + ' - ' + jProduct.[Name]) AS [LookupText] 
+FROM [dbo].[TransactionDetail] T0 
+LEFT JOIN [dbo].[Transaction] jTransaction ON (jTransaction.[Id] = T0.[TransactionId]) 
+LEFT JOIN [dbo].[Product] jProduct ON (jProduct.[Id] = T0.[ProductId])
+
+[D] 2020-07-05T21:01:07.622 Dapper.QueryInternal
+DECLARE sma NVARCHAR(4000) = 'dbo';
+DECLARE tbl NVARCHAR(4000) = 'TransactionExpense';
+
+
+                SELECT
+                    COLUMN_NAME [FieldName],
+                    CASE WHEN DATA_TYPE = 'timestamp' THEN 'rowversion' ELSE DATA_TYPE END [DataType],
+                    CASE WHEN IS_NULLABLE = 'NO' THEN 0 ELSE 1 END [IsNullable],
+                    COALESCE(CHARACTER_MAXIMUM_LENGTH, CASE WHEN DATA_TYPE in ('decimal', 'money', 'numeric') THEN NUMERIC_PRECISION ELSE 0 END) [Size],
+                    NUMERIC_SCALE [Scale]
+                FROM
+                    INFORMATION_SCHEMA.COLUMNS
+                WHERE
+                    TABLE_SCHEMA = @sma 
+                    AND TABLE_NAME = @tbl
+                ORDER BY
+                    ORDINAL_POSITION
+
+[D] 2020-07-05T21:01:07.623 Dapper.QueryInternal
+
+SELECT TOP 1 
+T0.[Id] AS [Id],
+T0.[TransactionId] AS [TransactionId],
+T0.[ExpenseType] AS [ExpenseType],
+T0.[Amount] AS [Amount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate],
+jTransaction.[TransactionType] AS [TransactionTransactionType],
+jTransaction.[RefTransactionId] AS [TransactionRefTransactionId],
+jTransaction.[TransactionNumber] AS [TransactionTransactionNumber],
+jTransaction.[TransactionDate] AS [TransactionTransactionDate],
+jTransaction.[PartyId] AS [TransactionPartyId] 
+FROM [dbo].[TransactionExpense] T0 
+LEFT JOIN [dbo].[Transaction] jTransaction ON (jTransaction.[Id] = T0.[TransactionId])
+

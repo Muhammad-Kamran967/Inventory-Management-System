@@ -1,0 +1,10 @@
+﻿[D] 2020-07-06T15:29:39.156 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T15:29:39.215 END - ExecuteReader

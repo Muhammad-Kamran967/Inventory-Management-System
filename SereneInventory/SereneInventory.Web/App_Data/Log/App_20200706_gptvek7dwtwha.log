@@ -1,0 +1,23 @@
+﻿[D] 2020-07-06T09:09:05.488 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:09:05.497 END - ExecuteReader
+[E] 2020-07-06T09:09:05.523 SereneInventory.Administration.AuthenticationService Inactive user login attempt: kamransharif706@gmail.com

@@ -1,0 +1,439 @@
+﻿[D] 2020-07-06T16:56:57.891 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T16:56:57.903 END - ExecuteReader
+[D] 2020-07-06T16:56:58.990 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T16:56:58.993 END - ExecuteReader
+[D] 2020-07-06T16:58:47.563 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T16:58:47.599 END - ExecuteReader
+[D] 2020-07-06T16:58:52.381 ExecuteReader
+DECLARE @p1 INT = 1;
+
+SELECT 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T16:58:52.384 END - ExecuteReader
+[D] 2020-07-06T16:59:16.060 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T16:59:16.078 END - ExecuteReader
+[D] 2020-07-06T16:59:22.692 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Tenant] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Tenant] T0
+
+[D] 2020-07-06T16:59:22.748 END - ExecuteReader
+[D] 2020-07-06T16:59:32.942 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Party] T0
+
+[D] 2020-07-06T16:59:32.992 END - ExecuteReader
+[D] 2020-07-06T16:59:41.056 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:59:41.100 END - ExecuteReader
+[D] 2020-07-06T16:59:41.642 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T16:59:41.791 END - ExecuteReader
+[D] 2020-07-06T16:59:48.761 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-06T16:59:48.768 END - ExecuteReader
+[D] 2020-07-06T16:59:56.368 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:59:56.372 END - ExecuteReader
+[D] 2020-07-06T16:59:56.836 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:59:56.838 END - ExecuteReader
+[D] 2020-07-06T16:59:57.337 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T16:59:57.364 END - ExecuteReader
+[D] 2020-07-06T17:00:20.890 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T17:00:20.892 END - ExecuteReader
+[D] 2020-07-06T17:01:05.618 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T17:01:05.729 END - ExecuteReader
+[D] 2020-07-06T17:01:13.687 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-06T17:01:13.791 END - ExecuteReader
+[D] 2020-07-06T17:01:20.399 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T17:01:20.445 END - ExecuteReader
+[D] 2020-07-06T17:01:26.034 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T17:01:26.035 END - ExecuteReader
+[D] 2020-07-06T17:01:29.906 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T17:01:29.938 END - ExecuteReader
+[D] 2020-07-06T17:01:39.251 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T17:01:39.369 END - ExecuteReader

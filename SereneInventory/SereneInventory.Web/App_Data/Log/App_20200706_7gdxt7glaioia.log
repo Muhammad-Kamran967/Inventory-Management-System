@@ -1,0 +1,465 @@
+﻿[D] 2020-07-06T09:41:36.481 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:41:36.528 END - ExecuteReader
+[D] 2020-07-06T09:41:38.384 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T09:41:38.390 END - ExecuteReader
+[D] 2020-07-06T09:44:28.087 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'superadmin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:44:28.095 END - ExecuteReader
+[D] 2020-07-06T09:44:28.160 ExecuteReader
+DECLARE @p1 INT = 1;
+
+SELECT 
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:44:28.164 END - ExecuteReader
+[D] 2020-07-06T09:44:28.198 ExecuteReader
+DECLARE @p1 INT = 1;
+
+SELECT 
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:44:28.201 END - ExecuteReader
+[D] 2020-07-06T09:44:28.211 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:44:28.215 END - ExecuteReader
+[D] 2020-07-06T09:44:58.360 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'user';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:44:58.361 END - ExecuteReader
+[D] 2020-07-06T09:44:58.430 ExecuteReader
+DECLARE @p1 INT = 4;
+
+SELECT 
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:44:58.431 END - ExecuteReader
+[D] 2020-07-06T09:44:58.433 ExecuteReader
+DECLARE @p1 INT = 4;
+
+SELECT 
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:44:58.437 END - ExecuteReader
+[D] 2020-07-06T09:44:58.437 ExecuteReader
+DECLARE @p1 INT = 2;
+
+SELECT 
+T0.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:44:58.440 END - ExecuteReader
+[D] 2020-07-06T09:45:26.004 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Party] T0
+
+[D] 2020-07-06T09:45:26.012 END - ExecuteReader
+[D] 2020-07-06T09:45:30.517 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T09:45:30.520 END - ExecuteReader
+[D] 2020-07-06T09:45:31.396 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T09:45:31.566 END - ExecuteReader
+[D] 2020-07-06T09:45:35.793 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-06T09:45:35.802 END - ExecuteReader
+[D] 2020-07-06T09:45:43.990 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T09:45:43.995 END - ExecuteReader
+[D] 2020-07-06T09:45:44.338 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T09:45:44.341 END - ExecuteReader
+[D] 2020-07-06T09:45:44.780 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T09:45:44.805 END - ExecuteReader
+[D] 2020-07-06T09:45:48.109 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T09:45:48.111 END - ExecuteReader
+[D] 2020-07-06T09:45:51.767 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T09:45:51.768 END - ExecuteReader
+[D] 2020-07-06T09:46:39.522 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T09:46:39.535 END - ExecuteReader
+[D] 2020-07-06T09:46:41.927 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:46:41.934 END - ExecuteReader
+[D] 2020-07-06T09:46:45.117 ExecuteReader
+
+SELECT 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName]
+
+[D] 2020-07-06T09:46:45.120 END - ExecuteReader
+[D] 2020-07-06T09:46:45.269 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserRoleId] AS [UserRoleId],
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:46:45.274 END - ExecuteReader
+[D] 2020-07-06T09:46:50.426 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserRoleId] AS [UserRoleId],
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:46:50.430 END - ExecuteReader
+[D] 2020-07-06T09:46:56.656 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserPermissionId] AS [UserPermissionId],
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:46:56.671 END - ExecuteReader
+[D] 2020-07-06T09:46:56.751 Dapper.QueryInternal
+DECLARE p1 INT = 3;
+
+SELECT DISTINCT 
+rp.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] rp 
+WHERE (rp.[RoleId] IN (SELECT 
+ur.[RoleId] AS [RoleId] 
+FROM [UserRoles] ur 
+WHERE (ur.[UserId] = @p1))) 
+ORDER BY rp.[PermissionKey]
+
+[D] 2020-07-06T09:47:16.591 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserPermissionId] AS [UserPermissionId],
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:47:16.592 END - ExecuteReader
+[D] 2020-07-06T09:47:16.606 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:CodeSnippets';
+DECLARE @p3 BIT = 0;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:47:16.612 END - ExecuteNonQuery
+[D] 2020-07-06T09:47:16.613 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:CompareEntityToDB';
+DECLARE @p3 BIT = 0;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:47:16.613 END - ExecuteNonQuery
+[D] 2020-07-06T09:47:16.614 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:GenerateMigrationFromEntity';
+DECLARE @p3 BIT = 0;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:47:16.614 END - ExecuteNonQuery
+[D] 2020-07-06T09:47:16.614 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:Sergen';
+DECLARE @p3 BIT = 0;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:47:16.615 END - ExecuteNonQuery

@@ -1,0 +1,1034 @@
+﻿[D] 2020-07-06T09:11:37.246 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:11:37.259 END - ExecuteReader
+[D] 2020-07-06T09:11:38.418 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T09:11:38.422 END - ExecuteReader
+[D] 2020-07-06T09:11:55.028 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:11:55.042 END - ExecuteReader
+[D] 2020-07-06T09:12:15.377 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamran';
+
+INSERT INTO [Roles] ([RoleName]) VALUES (@p1);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T09:12:15.416 END - ExecuteReader
+[D] 2020-07-06T09:12:15.552 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:12:15.553 END - ExecuteReader
+[D] 2020-07-06T09:12:31.952 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'usama';
+
+INSERT INTO [Roles] ([RoleName]) VALUES (@p1);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T09:12:31.959 END - ExecuteReader
+[D] 2020-07-06T09:12:32.098 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:12:32.134 END - ExecuteReader
+[D] 2020-07-06T09:12:41.593 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'haris';
+
+INSERT INTO [Roles] ([RoleName]) VALUES (@p1);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T09:12:41.594 END - ExecuteReader
+[D] 2020-07-06T09:12:41.709 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:12:41.710 END - ExecuteReader
+[D] 2020-07-06T09:12:46.809 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T09:12:46.816 END - ExecuteReader
+[D] 2020-07-06T09:13:05.054 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:13:05.055 END - ExecuteReader
+[D] 2020-07-06T09:13:13.172 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T09:13:13.173 END - ExecuteReader
+[D] 2020-07-06T09:14:48.608 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamran';
+DECLARE @p2 NVARCHAR(4000) = 'kamran';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[DisplayName] AS [DisplayName],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[IsActive] AS [IsActive] 
+FROM [Users] T0 
+WHERE ((T0.[Username] = @p1) OR (T0.[Username] = @p2))
+
+[D] 2020-07-06T09:14:48.613 END - ExecuteReader
+[D] 2020-07-06T09:14:48.632 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamran';
+DECLARE @p2 NVARCHAR(4000) = 'site';
+DECLARE @p3 NVARCHAR(4000) = 'OaKT2bm0s/C0aqQXpsBPSlVCDcQh5PIq57noZNv6T56tGnT8tTfFG6LzfjxF6G+SbPRxiG5FTdOWSCKrKIUgSw';
+DECLARE @p4 NVARCHAR(4000) = 'AD9}u';
+DECLARE @p5 NVARCHAR(4000) = 'kamran';
+DECLARE @p6 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+DECLARE @p7 NVARCHAR(4000) = 'temporary/ee941b4906c545988cd9d68d0b3e9b5f.jpg';
+DECLARE @p8 SMALLINT = 1;
+DECLARE @p9 INT = 1;
+DECLARE @p10 DATETIME2 = '2020-07-06T09:14:48.620';
+
+INSERT INTO [Users] ([Username], [Source], [PasswordHash], [PasswordSalt], [DisplayName], [Email], [UserImage], [IsActive], [InsertUserId], [InsertDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T09:14:48.637 END - ExecuteReader
+[D] 2020-07-06T09:14:48.938 ExecuteNonQuery
+DECLARE @p1 NVARCHAR(4000) = 'UserImage/00000/00000003_slpcfdncasm7s.jpg';
+DECLARE @p2 INT = 3;
+
+UPDATE [Users] SET [UserImage] = @p1 WHERE ([UserId] = @p2)
+
+[D] 2020-07-06T09:14:48.962 END - ExecuteNonQuery
+[D] 2020-07-06T09:14:49.144 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T09:14:49.164 END - ExecuteReader
+[D] 2020-07-06T09:15:36.945 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'kamran';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:15:36.952 END - ExecuteReader
+[D] 2020-07-06T09:15:37.044 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:15:37.047 END - ExecuteReader
+[D] 2020-07-06T09:15:37.125 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:15:37.127 END - ExecuteReader
+[D] 2020-07-06T09:16:54.581 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:16:54.591 END - ExecuteReader
+[D] 2020-07-06T09:17:04.892 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Tenant] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Tenant] T0
+
+[D] 2020-07-06T09:17:04.939 END - ExecuteReader
+[D] 2020-07-06T09:17:10.111 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T09:17:10.118 END - ExecuteReader
+[D] 2020-07-06T09:17:24.471 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:17:24.474 END - ExecuteReader
+[D] 2020-07-06T09:17:30.086 ExecuteReader
+
+SELECT 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName]
+
+[D] 2020-07-06T09:17:30.089 END - ExecuteReader
+[D] 2020-07-06T09:17:30.221 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserRoleId] AS [UserRoleId],
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:17:30.225 END - ExecuteReader
+[D] 2020-07-06T09:17:39.698 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserRoleId] AS [UserRoleId],
+T0.[RoleId] AS [RoleId] 
+FROM [UserRoles] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:17:39.699 END - ExecuteReader
+[D] 2020-07-06T09:17:39.716 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 INT = 1;
+
+INSERT INTO [UserRoles] ([UserId], [RoleId]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:17:39.739 END - ExecuteNonQuery
+[D] 2020-07-06T09:17:45.963 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserPermissionId] AS [UserPermissionId],
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:17:45.967 END - ExecuteReader
+[D] 2020-07-06T09:17:46.050 Dapper.QueryInternal
+DECLARE p1 INT = 3;
+
+SELECT DISTINCT 
+rp.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] rp 
+WHERE (rp.[RoleId] IN (SELECT 
+ur.[RoleId] AS [RoleId] 
+FROM [UserRoles] ur 
+WHERE (ur.[UserId] = @p1))) 
+ORDER BY rp.[PermissionKey]
+
+[D] 2020-07-06T09:18:49.055 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserPermissionId] AS [UserPermissionId],
+T0.[PermissionKey] AS [PermissionKey],
+T0.[Granted] AS [Granted] 
+FROM [UserPermissions] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:18:49.059 END - ExecuteReader
+[D] 2020-07-06T09:18:49.090 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:AuditLog';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.102 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.103 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:General';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.103 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.104 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Translation';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.104 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.104 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Delete';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.105 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.105 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Insert';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.105 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.105 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Read';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.106 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.106 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Update';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.106 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.106 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Security';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.107 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.107 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Delete';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.107 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.107 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Insert';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.107 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.108 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Read';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.108 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.108 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Update';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.108 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.109 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Delete';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.109 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.109 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Insert';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.109 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.109 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Read';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.110 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.110 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Update';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.110 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.111 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Delete';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.113 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.113 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Insert';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.116 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.116 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Read';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.116 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.117 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Update';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.117 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.117 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Delete';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.118 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.118 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Insert';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.118 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.118 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Read';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.119 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.119 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Update';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.119 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.120 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Delete';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.120 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.120 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Insert';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.120 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.120 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Read';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.121 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:49.121 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Update';
+DECLARE @p3 BIT = 1;
+
+INSERT INTO [UserPermissions] ([UserId], [PermissionKey], [Granted]) VALUES (@p1, @p2, @p3)
+
+[D] 2020-07-06T09:18:49.121 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:56.869 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[UserId] = @p1)
+
+[D] 2020-07-06T09:18:56.872 END - ExecuteReader
+[D] 2020-07-06T09:18:56.880 ExecuteNonQuery
+DECLARE @p1 NVARCHAR(4000) = 'kamran';
+DECLARE @p2 NVARCHAR(4000) = 'kamran';
+DECLARE @p3 NVARCHAR(4000) = 'kamransharif706@gmail.com';
+DECLARE @p4 NVARCHAR(4000) = 'UserImage/00000/00000003_slpcfdncasm7s.jpg';
+DECLARE @p5 INT = 1;
+DECLARE @p6 DATETIME2 = '2020-07-06T09:18:56.875';
+DECLARE @p7 INT = 3;
+
+UPDATE [Users] SET [Username] = @p1, [DisplayName] = @p2, [Email] = @p3, [UserImage] = @p4, [UpdateUserId] = @p5, [UpdateDate] = @p6 WHERE ([UserId] = @p7)
+
+[D] 2020-07-06T09:18:56.885 END - ExecuteNonQuery
+[D] 2020-07-06T09:18:57.032 ExecuteReader
+
+SELECT TOP 100 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+ORDER BY T0.[Username], T0.[UserId];
+SELECT count(*)  
+FROM [Users] T0
+
+[D] 2020-07-06T09:18:57.035 END - ExecuteReader
+[D] 2020-07-06T09:19:04.140 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T09:19:04.147 END - ExecuteReader
+[D] 2020-07-06T09:19:05.752 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:19:05.760 END - ExecuteReader
+[D] 2020-07-06T09:19:12.673 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:19:12.676 END - ExecuteReader
+[D] 2020-07-06T09:19:32.185 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RolePermissionId] AS [RolePermissionId],
+T0.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:19:32.198 END - ExecuteReader
+[D] 2020-07-06T09:19:47.742 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RolePermissionId] AS [RolePermissionId],
+T0.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:19:47.743 END - ExecuteReader
+[D] 2020-07-06T09:19:47.743 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:AuditLog';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.748 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.748 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:General';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.752 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.752 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Translation';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.753 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.753 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Delete';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.753 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.753 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Insert';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.754 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.754 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Read';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.754 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.755 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Tenant:Update';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.758 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.758 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Administration:Security';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.759 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.759 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:CodeSnippets';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.759 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.760 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:CompareEntityToDB';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.760 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.760 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:GenerateMigrationFromEntity';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.760 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.761 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'DevTools:Sergen';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.761 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.761 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Delete';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.761 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.761 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Insert';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.762 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.762 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Read';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.762 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.762 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:Transaction:Update';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.763 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.763 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Delete';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.763 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.763 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Insert';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.764 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.764 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Read';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.764 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.764 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Inventory:TransactionDetail:Update';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.764 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.765 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Delete';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.765 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.765 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Insert';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.768 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.768 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Read';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.769 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.769 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Party:Update';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.769 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.770 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Delete';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.770 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.770 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Insert';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.771 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.771 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Read';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.771 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.771 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:Product:Update';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.772 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.772 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Delete';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.774 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.774 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Insert';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.775 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.775 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Read';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.776 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:47.776 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+DECLARE @p2 NVARCHAR(4000) = 'Setup:ProductCategory:Update';
+
+INSERT INTO [RolePermissions] ([RoleId], [PermissionKey]) VALUES (@p1, @p2)
+
+[D] 2020-07-06T09:19:47.776 END - ExecuteNonQuery
+[D] 2020-07-06T09:19:55.144 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:19:55.155 END - ExecuteReader
+[D] 2020-07-06T09:19:57.275 ExecuteReader
+
+SELECT TOP 100 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+ORDER BY T0.[RoleName], T0.[RoleId];
+SELECT count(*)  
+FROM [Roles] T0
+
+[D] 2020-07-06T09:19:57.277 END - ExecuteReader
+[D] 2020-07-06T09:20:02.716 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:20:02.717 END - ExecuteReader
+[D] 2020-07-06T09:20:05.135 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RolePermissionId] AS [RolePermissionId],
+T0.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:20:05.136 END - ExecuteReader
+[D] 2020-07-06T09:20:10.471 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RolePermissionId] AS [RolePermissionId],
+T0.[PermissionKey] AS [PermissionKey] 
+FROM [RolePermissions] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:20:10.478 END - ExecuteReader
+[D] 2020-07-06T09:20:16.359 ExecuteReader
+DECLARE @p1 INT = 3;
+
+SELECT 
+T0.[RoleId] AS [RoleId],
+T0.[RoleName] AS [RoleName] 
+FROM [Roles] T0 
+WHERE (T0.[RoleId] = @p1)
+
+[D] 2020-07-06T09:20:16.363 END - ExecuteReader
+[D] 2020-07-06T09:20:16.373 ExecuteNonQuery
+DECLARE @p1 INT = 3;
+
+DELETE FROM [Roles] WHERE ([RoleId] = @p1)
+

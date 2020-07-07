@@ -1,0 +1,70 @@
+﻿[D] 2020-07-06T16:39:56.730 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T16:39:56.762 END - ExecuteReader
+[D] 2020-07-06T16:39:57.856 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T16:39:57.859 END - ExecuteReader
+[D] 2020-07-06T16:41:24.404 Dapper.QueryInternal
+DECLARE p1 INT = 10;
+DECLARE p2 DATETIME = '20200705';
+DECLARE p3 DATETIME = '20200706';
+
+SELECT 
+jProduct.[Name] AS [ItemName],
+SUM(T0.[Quantity]) AS [PurchaseQuantity],
+AVG(T0.[UnitPrice]) AS [AveragePurchasePrice],
+AVG(T0.[Amount]) AS [PurchaseAmount] 
+FROM [dbo].[TransactionDetail] T0 
+LEFT JOIN [dbo].[Product] jProduct ON (jProduct.[Id] = T0.[ProductId]) 
+LEFT JOIN [dbo].[Transaction] jTransaction ON (jTransaction.[Id] = T0.[TransactionId]) 
+WHERE (jTransaction.[TransactionType] = @p1) AND (jTransaction.[TransactionDate] >= @p2) AND (jTransaction.[TransactionDate] <= @p3) 
+GROUP BY jProduct.[Name]
+
+[D] 2020-07-06T16:41:24.489 Dapper.QueryInternal
+DECLARE p1 INT = 20;
+DECLARE p2 DATETIME = '20200705';
+DECLARE p3 DATETIME = '20200706';
+
+SELECT 
+jProduct.[Name] AS [ItemName],
+SUM(T0.[Quantity]) AS [SalesQuantity],
+AVG(T0.[UnitPrice]) AS [AverageSalesPrice],
+AVG(T0.[Amount]) AS [SalesAmount] 
+FROM [dbo].[TransactionDetail] T0 
+LEFT JOIN [dbo].[Product] jProduct ON (jProduct.[Id] = T0.[ProductId]) 
+LEFT JOIN [dbo].[Transaction] jTransaction ON (jTransaction.[Id] = T0.[TransactionId]) 
+WHERE (jTransaction.[TransactionType] = @p1) AND (jTransaction.[TransactionDate] >= @p2) AND (jTransaction.[TransactionDate] <= @p3) 
+GROUP BY jProduct.[Name]
+
+[D] 2020-07-06T16:41:24.503 Dapper.QueryInternal
+
+SELECT 
+T0.[Name] AS [ItemName] 
+FROM [dbo].[Product] T0
+

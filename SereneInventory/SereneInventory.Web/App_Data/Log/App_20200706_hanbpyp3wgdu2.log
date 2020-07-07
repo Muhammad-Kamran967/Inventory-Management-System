@@ -1,0 +1,699 @@
+﻿[D] 2020-07-06T16:16:35.651 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'admin';
+
+SELECT 
+T0.[UserId] AS [UserId],
+T0.[Username] AS [Username],
+T0.[Source] AS [Source],
+T0.[PasswordHash] AS [PasswordHash],
+T0.[PasswordSalt] AS [PasswordSalt],
+T0.[DisplayName] AS [DisplayName],
+T0.[Email] AS [Email],
+T0.[UserImage] AS [UserImage],
+T0.[LastDirectoryUpdate] AS [LastDirectoryUpdate],
+T0.[IsActive] AS [IsActive],
+T0.[InsertUserId] AS [InsertUserId],
+T0.[InsertDate] AS [InsertDate],
+T0.[UpdateUserId] AS [UpdateUserId],
+T0.[UpdateDate] AS [UpdateDate] 
+FROM [Users] T0 
+WHERE (T0.[Username] = @p1)
+
+[D] 2020-07-06T16:16:35.694 END - ExecuteReader
+[D] 2020-07-06T16:16:39.567 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[LanguageName] AS [LanguageName],
+T0.[LanguageId] AS [LanguageId] 
+FROM [Languages] T0 
+ORDER BY T0.[LanguageName]
+
+[D] 2020-07-06T16:16:39.620 END - ExecuteReader
+[D] 2020-07-06T16:17:31.639 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:17:31.735 END - ExecuteReader
+[D] 2020-07-06T16:17:35.113 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T16:17:35.271 END - ExecuteReader
+[D] 2020-07-06T16:17:55.175 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Party] T0
+
+[D] 2020-07-06T16:17:55.241 END - ExecuteReader
+[D] 2020-07-06T16:19:30.803 ExecuteReader
+DECLARE @p1 INT = 10;
+DECLARE @p2 NVARCHAR(4000) = 'USAMA';
+DECLARE @p3 NVARCHAR(1) = NULL;
+DECLARE @p4 NVARCHAR(1) = NULL;
+DECLARE @p5 BIGINT = 3;
+DECLARE @p6 NVARCHAR(1) = NULL;
+DECLARE @p7 DATETIME2 = '2020-07-06T16:19:30.756';
+
+INSERT INTO [dbo].[Party] ([PartyType], [Name], [Address], [Contact], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:19:31.020 END - ExecuteReader
+[D] 2020-07-06T16:19:31.614 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Party] T0
+
+[D] 2020-07-06T16:19:31.623 END - ExecuteReader
+[D] 2020-07-06T16:19:54.607 ExecuteReader
+DECLARE @p1 INT = 20;
+DECLARE @p2 NVARCHAR(4000) = 'haris';
+DECLARE @p3 NVARCHAR(1) = NULL;
+DECLARE @p4 NVARCHAR(1) = NULL;
+DECLARE @p5 BIGINT = 3;
+DECLARE @p6 NVARCHAR(1) = NULL;
+DECLARE @p7 DATETIME2 = '2020-07-06T16:19:54.606';
+
+INSERT INTO [dbo].[Party] ([PartyType], [Name], [Address], [Contact], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:19:54.718 END - ExecuteReader
+[D] 2020-07-06T16:19:55.234 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[PartyType] AS [PartyType],
+T0.[Name] AS [Name],
+T0.[Address] AS [Address],
+T0.[Contact] AS [Contact],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Party] T0
+
+[D] 2020-07-06T16:19:55.300 END - ExecuteReader
+[D] 2020-07-06T16:20:07.640 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T16:20:07.934 END - ExecuteReader
+[D] 2020-07-06T16:20:23.229 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-06T16:20:23.305 END - ExecuteReader
+[D] 2020-07-06T16:21:05.457 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'Electronics';
+DECLARE @p2 NVARCHAR(1) = NULL;
+DECLARE @p3 BIGINT = 3;
+DECLARE @p4 NVARCHAR(1) = NULL;
+DECLARE @p5 DATETIME2 = '2020-07-06T16:21:05.456';
+
+INSERT INTO [dbo].[ProductCategory] ([Name], [Description], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:21:05.505 END - ExecuteReader
+[D] 2020-07-06T16:21:05.855 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Description] AS [Description],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[ProductCategory] T0
+
+[D] 2020-07-06T16:21:05.886 END - ExecuteReader
+[D] 2020-07-06T16:21:13.483 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[ProductCategory] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:21:13.500 END - ExecuteReader
+[D] 2020-07-06T16:21:15.047 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T16:21:15.615 END - ExecuteReader
+[D] 2020-07-06T16:22:17.266 ExecuteReader
+DECLARE @p1 NVARCHAR(4000) = 'MOUSE';
+DECLARE @p2 NVARCHAR(4000) = '111';
+DECLARE @p3 BIGINT = 1;
+DECLARE @p4 NVARCHAR(1) = NULL;
+DECLARE @p5 NVARCHAR(1) = NULL;
+DECLARE @p6 BIGINT = 3;
+DECLARE @p7 NVARCHAR(1) = NULL;
+DECLARE @p8 DATETIME2 = '2020-07-06T16:22:17.200';
+
+INSERT INTO [dbo].[Product] ([Name], [Code], [ProductCategoryId], [Description], [Images], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:22:17.324 END - ExecuteReader
+[D] 2020-07-06T16:22:17.917 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T16:22:18.505 END - ExecuteReader
+[D] 2020-07-06T16:22:44.633 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:22:44.733 END - ExecuteReader
+[D] 2020-07-06T16:22:46.935 ExecuteReader
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:22:46.945 END - ExecuteReader
+[D] 2020-07-06T16:22:48.917 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T16:22:49.125 END - ExecuteReader
+[D] 2020-07-06T16:22:52.832 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+WHERE (T0.[PartyType] = @p1) 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:22:52.902 END - ExecuteReader
+[D] 2020-07-06T16:22:54.897 Dapper.QueryInternal
+DECLARE p1 NVARCHAR(4000) = 'PI-%';
+DECLARE p2 NVARCHAR(4000) = 'PI-00000';
+DECLARE p3 NVARCHAR(4000) = 'PI-99999';
+
+SELECT 
+MAX(T0.[TransactionNumber]) 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionNumber] LIKE @p1 AND (T0.[TransactionNumber] >= @p2)) AND (T0.[TransactionNumber] <= @p3))
+
+[D] 2020-07-06T16:24:07.534 ExecuteReader
+DECLARE @p1 INT = 10;
+DECLARE @p2 NVARCHAR(4000) = 'PI-00001';
+DECLARE @p3 DATETIME2 = '20200706';
+DECLARE @p4 BIGINT = 3;
+DECLARE @p5 NVARCHAR(1) = NULL;
+DECLARE @p6 DATETIME2 = '2020-07-06T16:24:07.532';
+
+INSERT INTO [dbo].[Transaction] ([TransactionType], [TransactionNumber], [TransactionDate], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:24:07.645 END - ExecuteReader
+[D] 2020-07-06T16:24:07.729 ExecuteReader
+DECLARE @p1 BIGINT = 1;
+DECLARE @p2 BIGINT = 1;
+DECLARE @p3 DECIMAL = 10;
+DECLARE @p4 DECIMAL = 700;
+DECLARE @p5 DECIMAL = 7000;
+DECLARE @p6 BIGINT = 3;
+DECLARE @p7 NVARCHAR(1) = NULL;
+DECLARE @p8 DATETIME2 = '2020-07-06T16:24:07.716';
+
+INSERT INTO [dbo].[TransactionDetail] ([TransactionId], [ProductId], [Quantity], [UnitPrice], [Amount], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:24:07.767 END - ExecuteReader
+[D] 2020-07-06T16:24:07.777 ExecuteReader
+DECLARE @p1 BIGINT = 1;
+DECLARE @p2 INT = 10;
+DECLARE @p3 DECIMAL = 100;
+DECLARE @p4 BIGINT = 3;
+DECLARE @p5 DATETIME2 = '2020-07-06T16:24:07.776';
+
+INSERT INTO [dbo].[TransactionExpense] ([TransactionId], [ExpenseType], [Amount], [IUserId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:24:07.833 END - ExecuteReader
+[D] 2020-07-06T16:24:08.754 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T16:24:09.067 END - ExecuteReader
+[D] 2020-07-06T16:24:36.437 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T16:24:36.744 END - ExecuteReader
+[D] 2020-07-06T16:24:41.280 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name] 
+FROM [dbo].[Party] T0 
+WHERE (T0.[PartyType] = @p1) 
+ORDER BY T0.[Name]
+
+[D] 2020-07-06T16:24:41.309 END - ExecuteReader
+[D] 2020-07-06T16:24:41.810 Dapper.QueryInternal
+DECLARE p1 NVARCHAR(4000) = 'SI-%';
+DECLARE p2 NVARCHAR(4000) = 'SI-00000';
+DECLARE p3 NVARCHAR(4000) = 'SI-99999';
+
+SELECT 
+MAX(T0.[TransactionNumber]) 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionNumber] LIKE @p1 AND (T0.[TransactionNumber] >= @p2)) AND (T0.[TransactionNumber] <= @p3))
+
+[D] 2020-07-06T16:25:23.048 ExecuteReader
+DECLARE @p1 INT = 20;
+DECLARE @p2 NVARCHAR(4000) = 'SI-00001';
+DECLARE @p3 DATETIME2 = '20200706';
+DECLARE @p4 BIGINT = 2;
+DECLARE @p5 BIGINT = 3;
+DECLARE @p6 NVARCHAR(1) = NULL;
+DECLARE @p7 DATETIME2 = '2020-07-06T16:25:23.048';
+
+INSERT INTO [dbo].[Transaction] ([TransactionType], [TransactionNumber], [TransactionDate], [PartyId], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:25:23.099 END - ExecuteReader
+[D] 2020-07-06T16:25:23.101 ExecuteReader
+DECLARE @p1 BIGINT = 2;
+DECLARE @p2 BIGINT = 1;
+DECLARE @p3 DECIMAL = 1;
+DECLARE @p4 DECIMAL = 1000;
+DECLARE @p5 DECIMAL = 1000;
+DECLARE @p6 BIGINT = 3;
+DECLARE @p7 NVARCHAR(1) = NULL;
+DECLARE @p8 DATETIME2 = '2020-07-06T16:25:23.100';
+
+INSERT INTO [dbo].[TransactionDetail] ([TransactionId], [ProductId], [Quantity], [UnitPrice], [Amount], [IUserId], [TenantId], [IDate]) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+SELECT SCOPE_IDENTITY() AS IDCOLUMNVALUE
+
+[D] 2020-07-06T16:25:23.201 END - ExecuteReader
+[D] 2020-07-06T16:25:24.100 ExecuteReader
+DECLARE @p1 INT = 20;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T16:25:24.172 END - ExecuteReader
+[D] 2020-07-06T16:25:37.379 ExecuteReader
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[Name] AS [Name],
+T0.[Code] AS [Code],
+T0.[ProductType] AS [ProductType],
+T0.[ProductCategoryId] AS [ProductCategoryId],
+T0.[Description] AS [Description],
+T0.[Images] AS [Images],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) AS [QuantityIn],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [QuantityOut],
+(SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 10
+AND d.ProductId = T0.Id) - (SELECT SUM(d.Quantity) 
+FROM TransactionDetail d 
+JOIN [Transaction] t ON t.Id = d.TransactionId 
+WHERE t.TransactionType = 20
+AND d.ProductId = T0.Id) AS [RemainingQuantity],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Product] T0 
+ORDER BY T0.[Name], T0.[Id];
+SELECT count(*)  
+FROM [dbo].[Product] T0
+
+[D] 2020-07-06T16:25:37.832 END - ExecuteReader
+[D] 2020-07-06T16:26:05.229 ExecuteReader
+DECLARE @p1 INT = 10;
+
+SELECT TOP 20 
+T0.[Id] AS [Id],
+T0.[TransactionType] AS [TransactionType],
+T0.[TransactionNumber] AS [TransactionNumber],
+T0.[TransactionDate] AS [TransactionDate],
+T0.[PartyId] AS [PartyId],
+(SELECT SUM(d.Quantity) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalQuantity],
+(SELECT SUM(d.Amount) FROM TransactionDetail d WHERE d.TransactionId = T0.Id) AS [TotalAmount],
+T0.[Remarks] AS [Remarks],
+T0.[IUserId] AS [IUserId],
+T0.[TenantId] AS [TenantId],
+T0.[EUserId] AS [EUserId],
+T0.[IDate] AS [IDate],
+T0.[EDate] AS [EDate] 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1)) 
+ORDER BY T0.[Id] DESC;
+SELECT count(*)  
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionType] = @p1))
+
+[D] 2020-07-06T16:26:05.508 END - ExecuteReader
+[D] 2020-07-06T16:26:11.008 Dapper.QueryInternal
+DECLARE p1 NVARCHAR(4000) = 'PI-%';
+DECLARE p2 NVARCHAR(4000) = 'PI-00000';
+DECLARE p3 NVARCHAR(4000) = 'PI-99999';
+
+SELECT 
+MAX(T0.[TransactionNumber]) 
+FROM [dbo].[Transaction] T0 
+WHERE ((T0.[TransactionNumber] LIKE @p1 AND (T0.[TransactionNumber] >= @p2)) AND (T0.[TransactionNumber] <= @p3))
+
+[D] 2020-07-06T16:27:15.546 Dapper.QueryInternal
+DECLARE p1 INT = 10;
+DECLARE p2 DATETIME = '20200705';
+DECLARE p3 DATETIME = '20200706';
+
+SELECT 
+jProduct.[Name] AS [ItemName],
+SUM(T0.[Quantity]) AS [PurchaseQuantity],
+AVG(T0.[UnitPrice]) AS [AveragePurchasePrice],
+AVG(T0.[Amount]) AS [PurchaseAmount] 
+FROM [dbo].[TransactionDetail] T0 
+LEFT JOIN [dbo].[Product] jProduct ON (jProduct.[Id] = T0.[ProductId]) 
+LEFT JOIN [dbo].[Transaction] jTransaction ON (jTransaction.[Id] = T0.[TransactionId]) 
+WHERE (jTransaction.[TransactionType] = @p1) AND (jTransaction.[TransactionDate] >= @p2) AND (jTransaction.[TransactionDate] <= @p3) 
+GROUP BY jProduct.[Name]
+
+[D] 2020-07-06T16:27:15.794 Dapper.QueryInternal
+DECLARE p1 INT = 20;
+DECLARE p2 DATETIME = '20200705';
+DECLARE p3 DATETIME = '20200706';
+
+SELECT 
+jProduct.[Name] AS [ItemName],
+SUM(T0.[Quantity]) AS [SalesQuantity],
+AVG(T0.[UnitPrice]) AS [AverageSalesPrice],
+AVG(T0.[Amount]) AS [SalesAmount] 
+FROM [dbo].[TransactionDetail] T0 
+LEFT JOIN [dbo].[Product] jProduct ON (jProduct.[Id] = T0.[ProductId]) 
+LEFT JOIN [dbo].[Transaction] jTransaction ON (jTransaction.[Id] = T0.[TransactionId]) 
+WHERE (jTransaction.[TransactionType] = @p1) AND (jTransaction.[TransactionDate] >= @p2) AND (jTransaction.[TransactionDate] <= @p3) 
+GROUP BY jProduct.[Name]
+
+[D] 2020-07-06T16:27:15.831 Dapper.QueryInternal
+
+SELECT 
+T0.[Name] AS [ItemName] 
+FROM [dbo].[Product] T0
+

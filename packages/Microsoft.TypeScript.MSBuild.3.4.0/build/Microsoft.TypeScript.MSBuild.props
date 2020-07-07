@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\tools\Microsoft.TypeScript.Default.props" />
+  <PropertyGroup>
+    <TypeScriptNuGetToolsVersion>3.4</TypeScriptNuGetToolsVersion>
+    <EnableTypeScriptNuGetTarget>true</EnableTypeScriptNuGetTarget>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Copied these properties from Microsoft.typescript.targets to workaround the bug in Azure publishing -->
+    <PublishPipelineCollectFilesCore>
+      $(PublishPipelineCollectFilesCore);
+      FindConfigFiles;
+      CompileTypeScript;
+      CompileTypeScriptWithTSConfig;
+    </PublishPipelineCollectFilesCore>
+  </PropertyGroup>
+
+  <!-- Exclude TypeScript files from the default items included by ASP.Net Core projects so that they get put in the correct group -->
+  <PropertyGroup>
+    <DefaultTypeScriptIncludePattern>**\*.ts;**\*.tsx</DefaultTypeScriptIncludePattern>
+    <EnableDefaultTypeScriptItems Condition=" '$(EnableDefaultTypeScriptItems)' == '' ">true</EnableDefaultTypeScriptItems>
+  </PropertyGroup>
+  
+  <ItemGroup Condition="'$(EnableDefaultItems)' == 'true' AND '$(EnableDefaultTypeScriptItems)' == 'true'">
+    <None Remove="$(DefaultTypeScriptIncludePattern)" Condition="'$(EnableDefaultNoneItems)' == 'true'" />
+    <Content Remove="$(DefaultTypeScriptIncludePattern)" Condition="'$(EnableDefaultContentItems)' == 'true'" />
+    <TypeScriptCompile Include="$(DefaultTypeScriptIncludePattern)" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectCapability Include="TypeScriptNuGet" />
+  </ItemGroup>
+</Project>
